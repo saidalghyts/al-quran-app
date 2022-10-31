@@ -23,8 +23,10 @@ export default function Navbar() {
             <Link
               href="/"
               className="mr-3  flex-none overflow-hidden md:w-auto">
-              <span className="sr-only">Al-Qur'an ID</span>
-              <span className="font-mono text-lg font-bold">Al-Qur'an ID</span>
+              <span className="sr-only">Al-Qur&#39;an ID</span>
+              <span className="font-mono text-lg font-bold">
+                Al-Qur&#39;an ID
+              </span>
             </Link>
 
             <div className="relative ml-auto flex items-center">
