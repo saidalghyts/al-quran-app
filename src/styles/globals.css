@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'arabic';
+  src: url(/LPMQ.ttf);
+}
+
+.arabic {
+  font-family: 'arabic';
+}
+
+@layer utilities {
+  body {
+    @apply antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900;
+  }
+}
+
+html {
+  @apply font-sans;
+}
+
+@supports ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))) or
+  (-webkit-backdrop-filter: blur(0)) {
+  .supports-backdrop-blur\:bg-white\/60 {
+    background-color: hsla(0, 0%, 100%, 0.6);
+  }
+}
+
+@supports ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))) or
+  (-webkit-backdrop-filter: blur(0)) {
+  .supports-backdrop-blur\:bg-white\/95 {
+    background-color: hsla(0, 0%, 100%, 0.95);
+  }
+}
+
+.tup {
+  @apply py-10;
+}
