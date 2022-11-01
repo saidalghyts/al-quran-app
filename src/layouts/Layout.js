@@ -6,9 +6,7 @@ export default function Layout({ children }) {
     <>
       <Wrp />
       <Navbar />
-      <div className="max-w-8xl mx-auto px-8">
-        <div className="tup">{children}</div>
-      </div>
+      {children}
     </>
   );
 }
