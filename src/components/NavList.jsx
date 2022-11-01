@@ -23,7 +23,7 @@ export default function NavList({ data }) {
         <ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800">
           {lsdata.map((list) => {
             return (
-              <li>
+              <li key={list.nomor}>
                 <Link
                   className={`${
                     list.nama_latin == data.nama_latin
