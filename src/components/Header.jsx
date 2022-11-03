@@ -1,14 +1,18 @@
 import React from 'react';
 
-export default function Header() {
+export default function Header({ children }) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    return false;
+  }
   return (
-    <header className="py-10 sm:text-center">
+    <header className="py-10 text-center px-4 md:px-6 lg:px-8">
       <h1 className="mb-4 text-3xl sm:text-4xl tracking-tight text-slate-900 font-extrabold dark:text-slate-200">
         Al-Qur&#39;an
       </h1>
       <section className="mt-3 max-w-sm sm:mx-auto sm:px-4">
         <h2 className="sr-only">Cari surah</h2>
-        <form className="flex flex-wrap -mx-2">
+        <form className="flex flex-wrap -mx-2" onSubmit={handleSubmit}>
           <div className="px-2 grow-[9999] basis-64 mt-3">
             <div className="group relative">
               <svg
@@ -24,15 +28,7 @@ export default function Header() {
                 <path d="m19 19-3.5-3.5" />
                 <circle cx={11} cy={11} r={6} />
               </svg>
-              <input
-                name="email_address"
-                type="email"
-                required
-                autoComplete="email"
-                aria-label="Email address"
-                className="appearance-none shadow rounded-md ring-1 ring-slate-900/5 leading-5 sm:text-sm border border-transparent py-2 placeholder:text-slate-400 pl-12 pr-3 block w-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white dark:bg-slate-700/20 dark:ring-slate-200/20 dark:focus:ring-sky-500 dark:text-white"
-                placeholder="Cari surah"
-              />
+              {children}
             </div>
           </div>
         </form>
