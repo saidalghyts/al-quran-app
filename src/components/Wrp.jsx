@@ -3,7 +3,6 @@ export default function Wrp() {
     <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center overflow-hidden">
       <div className="flex w-[108rem] flex-none justify-end">
         <picture>
-          <source srcSet="docs@30.8b9a76a2.avif" type="image/avif" />
           <img
             src="/docs@tinypng.d9e4dcdc.png"
             alt=""
@@ -12,7 +11,6 @@ export default function Wrp() {
           />
         </picture>
         <picture>
-          <source srcSet="docs-dark@30.1a9f8cbf.avif" type="image/avif" />
           <img
             src="/docs-dark@tinypng.1bbe175e.png"
             alt=""

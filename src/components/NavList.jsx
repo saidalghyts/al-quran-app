@@ -8,7 +8,8 @@ export default function NavList({ data1, data2 }) {
     return false;
   }
   return (
-    <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
+    <div
+      className={`translate-x-[-20rem] lg:translate-x-0 block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto`}>
       <nav className="lg:text-sm lg:leading-6 relative">
         <div className="sticky top-0 -ml-0.5 pointer-events-none">
           <div className="h-8 bg-white dark:bg-slate-900"></div>

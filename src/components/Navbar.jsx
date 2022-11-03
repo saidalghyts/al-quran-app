@@ -5,11 +5,13 @@ import { useEffect, useState } from 'react';
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [scroll, setScroll] = useState(false);
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 50);
     });
   }, []);
+
   return (
     <div
       className={`${
@@ -22,7 +24,7 @@ export default function Navbar() {
           <div className="relative flex items-center">
             <Link
               href="/"
-              className="mr-3  flex-none overflow-hidden md:w-auto">
+              className="mx-3  flex-none overflow-hidden md:w-auto">
               <span className="sr-only">Al-Qur&#39;an ID</span>
               <span className="font-mono text-lg font-bold">
                 Al-Qur&#39;an ID
