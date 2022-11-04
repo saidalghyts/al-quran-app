@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function Navbar() {
+export default function Navbar({ open }) {
   const { theme, setTheme } = useTheme();
   const [scroll, setScroll] = useState(false);
 
@@ -17,8 +17,8 @@ export default function Navbar() {
       className={`${
         scroll
           ? 'bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'
-          : 'bg-white/95 supports-backdrop-blur:bg-white/60'
-      }  sticky top-0 z-40 w-full flex-none backdrop-blur dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 border-b lg:border-slate-900/10`}>
+          : `  bg-white/95 ${open ? '' : ' supports-backdrop-blur:bg-white/60'}`
+      } sticky top-0 z-50 w-full flex-none backdrop-blur dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 border-b lg:border-slate-900/10`}>
       <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 m-0">
         <div className=" py-4 ">
           <div className="relative flex items-center">

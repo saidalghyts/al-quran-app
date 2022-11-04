@@ -21,7 +21,7 @@ export default function Surah({ data1, data2 }) {
       <div
         className={`${
           open ? 'max-lg:translate-x-[-20rem]' : 'translate-0'
-        } duration-300 m block max-lg:dark:bg-slate-900 max-lg:bg-white fixed z-50 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto`}>
+        } duration-100 m block max-lg:dark:bg-slate-900 max-lg:bg-white fixed z-30 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto`}>
         <nav className="lg:text-sm lg:leading-6 relative">
           <div className="sticky top-0 -ml-0.5 pointer-events-none">
             <div className="h-8 bg-white dark:bg-slate-900"></div>
@@ -60,13 +60,13 @@ export default function Surah({ data1, data2 }) {
             {data2
               .filter((list) => list.nama_latin.toLowerCase().includes(search))
               .map((list) => (
-                <li key={list.nomor}>
+                <li key={list.nomor} onClick={() => setOpen(true)}>
                   <Link
                     className={`${
                       list.nama_latin == data1.nama_latin
                         ? 'text-sky-500 dark:text-sky-400 font-semibold'
                         : ''
-                    } block border-l pl-4 -ml-px  border-current  `}
+                    } block border-l pl-4 -ml-px  border-current`}
                     href={'/surah/' + list.nomor}
                     key={list.nomor}>
                     {list.nama_latin}
@@ -76,14 +76,43 @@ export default function Surah({ data1, data2 }) {
           </ul>
         </nav>
       </div>
+      <div
+        onClick={() => setOpen(true)}
+        className={`${
+          open
+            ? 'bg-transparent opacity-0 invisible'
+            : 'opacty-1 visible bg-[rgba(0,0,0,.2)] z-[29]'
+        } block  fixed left-0 right-0 bottom-0 top-0 supports-[backdrop-filter]:backdrop-saturate-[180%] supports-[backdrop-filter]:backdrop-blur-[10px]`}></div>
       <div className="overflow-hidden">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="lg:pl-[19.5rem]">
             <div
-              className={`fixed z-50 top-20 lg:hidden w-12 h-12 bg-sky-400 rounded-full duration-300 ${
-                open ? '-left-6' : 'left-[18rem]'
-              } `}
-              onClick={() => setOpen(!open)}></div>
+              onClick={() => setOpen(!open)}
+              className={`fixed cursor-pointer z-30 top-[120px] lg:hidden  duration-100 ${
+                open ? 'left-0' : 'left-[18.2rem]'
+              } `}>
+              <div
+                className={`${
+                  open
+                    ? 'rounded-r-[20px] w-[45px]'
+                    : 'rounded-[20px] bg-sky-500 dark:bg-sky-500 w-10'
+                } flex items-center justify-center relative shadow-[0_5px_20px_0_rgb(0_0_0_/_10%)] h-10  dark:bg-slate-900 bg-white  `}>
+                <svg
+                  viewBox="0 0 3 6"
+                  className={`${
+                    open ? 'text-slate-400' : 'rotate-[180deg] text-white'
+                  } w-3 h-3  overflow-visible `}>
+                  <path
+                    d="M0 0L3 3L0 6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
             <main className="max-w-3xl mx-auto relative z-20 pt-10 xl:max-w-none">
               <div className="flex justify-center mb-10">
                 <div className="p-5 mb-6 lg:w-[50%] md:w-[60%] max-sm:w-[70%] sm:w-[70%] relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5">
