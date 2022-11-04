@@ -3,7 +3,7 @@ import Fot from '../../components/Fot';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function Surah({ data1, data2 }) {
+export default function Surah({ data1, data2, data3 }) {
   const [open, setOpen] = useState(true);
   const [search, setSearch] = useState('');
   function handleSubmit(e) {
@@ -180,10 +180,11 @@ export default function Surah({ data1, data2 }) {
                   key={isi.nomor}
                   id={isi.nomor}
                   className="p-5 mb-6 scroll-mt-20 relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5">
-                  <p className="text-sm align-center pb-6">{isi.nomor}</p>
-                  <p className="leading-[2.8rem] text-2xl arabic text-right pb-4">
+                  <p className="text-sm pb-6">{isi.nomor}</p>
+                  <p className="leading-[3.5rem] text-2xl arabic text-right pb-4">
                     {isi.ar}
                   </p>
+                  <p className="text-sm pb-2">{isi.tr}</p>
                   <p className="text-sm">{isi.idn}</p>
                 </div>
               ))}
@@ -220,6 +221,7 @@ export const getStaticProps = async (contex) => {
     props: {
       data1,
       data2,
+      data3,
     },
   };
 };
