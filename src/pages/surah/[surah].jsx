@@ -21,15 +21,15 @@ export default function Surah({ data1, data2 }) {
       <div
         className={`${
           open ? 'max-lg:translate-x-[-20rem]' : 'translate-0'
-        } duration-100 m block max-lg:dark:bg-slate-900 max-lg:bg-white fixed z-30 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto`}>
+        } duration-100 block dark:bg-slate-900 max-lg:bg-white fixed z-30 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto`}>
         <nav className="lg:text-sm lg:leading-6 relative">
           <div className="sticky top-0 -ml-0.5 pointer-events-none">
-            <div className="h-8 bg-white dark:bg-slate-900"></div>
-            <div className="bg-white dark:bg-slate-900 relative pointer-events-auto">
+            <div className="h-8 bg-white dark:bg-slate-900  "></div>
+            <div className="bg-white dark:bg-slate-900  relative pointer-events-auto ">
               <form
                 className="flex flex-wrap -mx-2 sticky"
                 onSubmit={handleSubmit}>
-                <div className="px-2 grow-[9999] basis-64 mt-3">
+                <div className="px-2 grow-[9999] basis-64 mt-3 ">
                   <div className="group relative">
                     <svg
                       width={24}
@@ -46,15 +46,15 @@ export default function Surah({ data1, data2 }) {
                     </svg>
                     <input
                       type="search"
-                      className="appearance-none shadow rounded-md ring-1 ring-slate-900/5 leading-5 sm:text-sm border border-transparent py-2 placeholder:text-slate-400 pl-12 pr-3 block w-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white dark:bg-slate-700/20 dark:ring-slate-200/20 dark:focus:ring-sky-500 dark:text-white"
+                      className="appearance-none shadow rounded-md ring-1 ring-slate-900/5 leading-5 sm:text-sm border border-transparent py-2 placeholder:text-slate-400 pl-12 pr-3 block w-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white dark:bg-slate-700/20 dark:ring-slate-200/20 dark:focus:ring-sky-500 dark:text-white "
                       placeholder="Cari surah"
-                      onChange={(e) => setSearch(e.target.value)}
+                      onChange={(e) => setSearch(e.target.value.toLowerCase())}
                     />
                   </div>
                 </div>
               </form>
             </div>
-            <div className="h-8 bg-gradient-to-b from-white dark:from-slate-900"></div>
+            <div className="h-8 bg-gradient-to-b from-white dark:from-slate-900 "></div>
           </div>
           <ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800">
             {data2
@@ -82,7 +82,7 @@ export default function Surah({ data1, data2 }) {
           open
             ? 'bg-transparent opacity-0 invisible'
             : 'opacty-1 visible bg-[rgba(0,0,0,.2)] z-[29]'
-        } block  fixed left-0 right-0 bottom-0 top-0 supports-[backdrop-filter]:backdrop-saturate-[180%] supports-[backdrop-filter]:backdrop-blur-[10px]`}></div>
+        } block  fixed left-0 right-0 bottom-0 top-0 supports-[backdrop-filter]:backdrop-saturate-[180%] supports-[backdrop-filter]:backdrop-blur-[10px] lg:hidden`}></div>
       <div className="overflow-hidden">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="lg:pl-[19.5rem]">
@@ -94,9 +94,9 @@ export default function Surah({ data1, data2 }) {
               <div
                 className={`${
                   open
-                    ? 'rounded-r-[20px] w-[45px]'
+                    ? 'rounded-r-[20px] w-[45px] dark:bg-slate-800 bg-white'
                     : 'rounded-[20px] bg-sky-500 dark:bg-sky-500 w-10'
-                } flex items-center justify-center relative shadow-[0_5px_20px_0_rgb(0_0_0_/_10%)] h-10  dark:bg-slate-900 bg-white  `}>
+                } flex items-center justify-center relative shadow-[0_5px_20px_0_rgb(0_0_0_/_10%)] h-10  `}>
                 <svg
                   viewBox="0 0 3 6"
                   className={`${
@@ -115,7 +115,7 @@ export default function Surah({ data1, data2 }) {
             </div>
             <main className="max-w-3xl mx-auto relative z-20 pt-10 xl:max-w-none">
               <div className="flex justify-center mb-10">
-                <div className="p-5 mb-6 lg:w-[50%] md:w-[60%] max-sm:w-[70%] sm:w-[70%] relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5">
+                <div className="p-5 mb-6 lg:w-[50%] md:w-[70%] max-sm:w-[80%] sm:w-[80%] relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5">
                   <p className="arabic text-center text-2xl font-semibold pb-2">
                     {data1.nama}
                   </p>

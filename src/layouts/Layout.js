@@ -1,12 +1,14 @@
 import Navbar from '../components/Navbar';
+import ToTop from '../components/ToTop';
 import Wrp from '../components/Wrp';
 
-export default function Layout({ children, open }) {
+export default function Layout({ children }) {
   return (
     <>
       <Wrp />
-      <Navbar open={open} />
+      <Navbar />
       {children}
+      <ToTop />
     </>
   );
 }

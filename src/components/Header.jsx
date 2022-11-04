@@ -6,8 +6,8 @@ export default function Header({ children }) {
     return false;
   }
   return (
-    <header className="py-10 text-center px-4 md:px-6 lg:px-8">
-      <h1 className="mb-4 text-3xl sm:text-4xl tracking-tight text-slate-900 font-extrabold dark:text-slate-200">
+    <header className="py-10 flex justify-center px-4 md:px-6 lg:px-8 flex-col items-center">
+      <h1 className="mb-4 text-3xl text-center sm:text-4xl tracking-tight text-slate-900 font-extrabold dark:text-slate-200">
         Al-Qur&#39;an
       </h1>
       <section className="mt-3 max-w-sm sm:mx-auto sm:px-4">

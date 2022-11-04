@@ -87,6 +87,8 @@ export default function Navbar({ open }) {
                 </button>
                 <a
                   href="https://github.com/saidghiyats"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300">
                   <span className="sr-only">GitHub</span>
                   <svg
