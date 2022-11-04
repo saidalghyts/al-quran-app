@@ -22,13 +22,9 @@ export default function Navbar() {
       <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 m-0">
         <div className=" py-4 ">
           <div className="relative flex items-center">
-            <Link
-              href="/"
-              className="mx-3  flex-none overflow-hidden md:w-auto">
+            <Link href="/" className=" flex-none overflow-hidden md:w-auto">
               <span className="sr-only">Al-Qur&#39;an ID</span>
-              <span className="font-mono text-lg font-bold">
-                Al-Qur&#39;an ID
-              </span>
+              <span className="font-mono text-lg font-bold">Al-Qur&#39;an</span>
             </Link>
 
             <div className="relative ml-auto flex items-center">
