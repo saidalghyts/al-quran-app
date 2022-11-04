@@ -27,7 +27,7 @@ export default function ToTop() {
       onClick={scrollToTop}
       className={`${
         visible ? 'opacity-80 bottom-8' : 'opacity-0 -bottom-10'
-      } fixed z-[999] right-8 cursor-pointer duration-300 w-10 h-10 rounded-full hover:opacity-100 bg-sky-500 flex items-center justify-center`}>
+      } fixed z-[29] right-8 cursor-pointer duration-300 w-10 h-10 rounded-full hover:opacity-100 bg-sky-500 flex items-center justify-center`}>
       <svg
         viewBox="0 0 3 6"
         className="w-3 h-3 rotate-[90deg] text-slate-100 overflow-visible">
