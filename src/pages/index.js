@@ -67,7 +67,6 @@ export default function Home({ dataSrh }) {
 }
 
 export async function getStaticProps() {
-  // You can use any data fetching library
   const res = await fetch('https://equran.id/api/surat');
   const dataSrh = await res.json();
   return {
