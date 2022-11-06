@@ -1,9 +1,11 @@
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Context } from '../contexts/Context';
 
-export default function Navbar({ open }) {
+export default function Navbar() {
   const { theme, setTheme } = useTheme();
+  const { open, setOpen } = useContext(Context);
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
@@ -16,9 +18,9 @@ export default function Navbar({ open }) {
     <div
       className={`${
         scroll
-          ? 'bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'
-          : `  bg-white/95 ${open ? '' : ' supports-backdrop-blur:bg-white/60'}`
-      } sticky top-0 z-50 w-full flex-none backdrop-blur dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 border-b lg:border-slate-900/10`}>
+          ? `${open ? '' : 'border-none'} border-b lg:border-slate-900/10 `
+          : ''
+      } bg-white  sticky top-0 z-50 w-full flex-none backdrop-blur dark:border-slate-50/[0.06] dark:bg-slate-900 lg:z-50 `}>
       <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8 m-0">
         <div className=" py-4 ">
           <div className="relative flex items-center">
