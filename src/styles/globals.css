@@ -65,3 +65,37 @@ html {
   background-color: rgb(203 213 225/1);
   border-radius: 0.25rem;
 }
+
+.modal-dialog-scrollable {
+  height: calc(100% - 1rem);
+}
+.modal-dialog {
+  margin: 0.5rem;
+}
+@media (min-width: 576px) {
+  .modal-dialog-scrollable {
+    height: calc(100% - 3.5rem);
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+  }
+}
+
+.modal-dialog-scrollable .modal-content {
+  max-height: 100%;
+  overflow: hidden;
+}
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+}
+.modal-header .btn-close {
+  padding: 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+}
+.btn-close {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath d='M.293.293a1 1 0 011.414.0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293A1 1 0 01.293 14.293L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E")
+    50%/1em no-repeat;
+}
