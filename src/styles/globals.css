@@ -57,7 +57,7 @@ html {
     @apply dark:bg-slate-900;
   }
   ::-webkit-scrollbar-thumb {
-    @apply dark:bg-slate-700;
+    @apply dark:bg-slate-800;
   }
 }
 

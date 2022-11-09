@@ -8,14 +8,18 @@ import BtnNavList from '../../components/BtnNavList';
 import { useState } from 'react';
 
 export default function Surah({ data1, data2, data3 }) {
-  // console.log(data3.tafsir.filter((x) => x.ayat == '1').map((x) => x.tafsir));
   const [showModal, setShowModal] = useState(true);
-  const [nomor, setNomor] = useState();
+  const [nomor, setNomor] = useState('');
 
   const Tafsir = (id) => {
     setShowModal(false);
     setNomor(id);
+    const element = document.getElementById('theModal');
+    if (nomor !== id) {
+      element.scrollTop = 0;
+    }
   };
+
   return (
     <>
       <Head>
@@ -29,10 +33,10 @@ export default function Surah({ data1, data2, data3 }) {
 
       <div
         className={`${
-          showModal ? 'hidden' : 'block'
+          showModal ? 'invisible opacity-0' : 'opacity-100 visible'
         } z-[60] fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto supports-[backdrop-filter]:backdrop-saturate-[180%] supports-[backdrop-filter]:backdrop-blur-[10px]`}>
         <div className="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
-          <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto dark:bg-slate-800 bg-white bg-clip-padding rounded-md outline-none text-current">
+          <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto dark:bg-slate-900 bg-white bg-clip-padding rounded-md outline-none text-current">
             <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b dark:border-slate-50/[0.06] border-gray-200 rounded-t-md">
               <h5 className="text-xl font-medium leading-normal ">Tafsir</h5>
               <span
@@ -54,10 +58,10 @@ export default function Surah({ data1, data2, data3 }) {
                 </svg>
               </span>
             </div>
-            <div className="modal-body relative p-4 text-justify">
+            <div id="theModal" className="modal-body relative p-4 text-justify">
               <p>
                 {data3.tafsir
-                  .filter((x) => x.ayat == nomor)
+                  .filter((x) => x.ayat === nomor)
                   .map((x) => x.tafsir)}
               </p>
             </div>
