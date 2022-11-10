@@ -7,6 +7,7 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const { open, setOpen } = useContext(Context);
   const [scroll, setScroll] = useState(false);
+  const { showBookmark, setShowBookmark } = useContext(Context);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -30,6 +31,23 @@ export default function Navbar() {
             </Link>
 
             <div className="relative ml-auto flex items-center">
+              <button>
+                <span
+                  onClick={() => setShowBookmark(false)}
+                  className="cursor-pointer duration-200">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    width={20}
+                    height={20}
+                    viewBox="0 0 24 24">
+                    <g transform="translate(4.500000, 2.500000)">
+                      <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z" />
+                    </g>
+                  </svg>
+                </span>
+              </button>
               <div className=" ml-4 flex items-center ">
                 <label
                   className="sr-only"
@@ -37,6 +55,7 @@ export default function Navbar() {
                   data-headlessui-state>
                   Theme
                 </label>
+
                 <button
                   type="button"
                   id="headlessui-listbox-button-4"
