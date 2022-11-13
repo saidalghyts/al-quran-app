@@ -1,8 +1,20 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../contexts/Context';
 
-export default function Bookmarks() {
+export default function Bookmarks({ data1 }) {
   const { showBookmark, setShowBookmark } = useContext(Context);
+  const [bookmarks, toggleBookmark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const ls = localStorage.getItem('bookmarks');
+      if (ls) return JSON.parse(ls);
+      else return [];
+    }
+  });
+  const [pr, setPr] = useState([]);
+  useEffect(() => {
+    setPr(data1.ayat?.filter((s) => bookmarks?.includes(s.id)));
+  }, []);
+
   return (
     <div
       className={`${
@@ -31,9 +43,11 @@ export default function Bookmarks() {
               </svg>
             </span>
           </div>
-          <div
-            id="theModal"
-            className="modal-body relative p-4 text-justify"></div>
+          <div id="theModal" className="modal-body relative p-4 text-justify">
+            {pr?.map((e) => (
+              <p>{e.ar}</p>
+            ))}
+          </div>
           <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 dark:border-slate-50/[0.06] rounded-b-md">
             <button
               onClick={() => setShowBookmark(true)}
