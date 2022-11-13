@@ -68,7 +68,7 @@ export default function Surah({ data1, data2, data3 }) {
                 ?.filter((s) => bookmarks?.includes(s.id))
                 .map((e) => {
                   return (
-                    <div>
+                    <div key={s.nomor}>
                       <Link href={'/surah/' + e.surah + `#${e.nomor}`}>
                         <p>{data3.nama_latin}</p>
                         <p>{e.nomor}</p>
@@ -151,12 +151,12 @@ export default function Surah({ data1, data2, data3 }) {
                     className={` p-5 mb-6 scroll-mt-20 relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5`}>
                     <div className="pb-6 flex justify-between">
                       <span className="text-sm">{isi.nomor}</span>
-                      <div className="flex">
+                      <div className="flex gap-4">
                         <span
                           onClick={toggleBookmark(isi.id)}
                           className="cursor-pointer duration-200">
                           <svg
-                            className={` hover:stroke-sky-400 ml-4`}
+                            className={` hover:stroke-sky-400`}
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={2}
