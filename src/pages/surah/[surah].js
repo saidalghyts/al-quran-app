@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Fot from '../../components/Fot';
 import HeadSurah from '../../components/HeadSurah';
 import NavList from '../../components/NavList';
@@ -6,6 +5,7 @@ import PrevNext from '../../components/PrevNext';
 import ForClose from '../../components/ForClose';
 import BtnNavList from '../../components/BtnNavList';
 import { useState } from 'react';
+import Head from 'next/head';
 
 export default function Surah({ data1, data2, data3 }) {
   const [showModal, setShowModal] = useState(true);
@@ -20,12 +20,12 @@ export default function Surah({ data1, data2, data3 }) {
     }
   };
 
+  const Ttl = data1.nama_latin;
+
   return (
     <>
       <Head>
-        <title>{data1.nama_latin}</title>
-        <meta name="description" content="Baca al-qur&#39;an online" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{Ttl} | Al-Qur&#39;an</title>
       </Head>
 
       <NavList data1={data1} data2={data2} />
