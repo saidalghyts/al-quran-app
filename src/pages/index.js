@@ -30,9 +30,9 @@ export default function Home({ dataSrh }) {
               )
               .map((surah) => (
                 <li className="text-sm leading-6" key={surah.nomor}>
-                  <div className="relative flex flex-col-reverse bg-slate-50 rounded-lg py-6 dark:bg-slate-800 dark:highlight-white/5">
+                  <div className="relative flex flex-col-reverse py-6 group rounded-xl bg-slate-50 p-6 dark:bg-slate-800/80 dark:highlight-white/5 hover:bg-slate-100 dark:hover:bg-slate-700/50">
                     <div className="flex">
-                      <div className="flex pl-6 justify-center items-center">
+                      <div className="flex justify-center items-center">
                         <span className=" text-lg font-extrabold">
                           {surah.nomor}
                         </span>
@@ -40,16 +40,18 @@ export default function Home({ dataSrh }) {
                       <div className="pl-6 flex-auto ">
                         <Link
                           href={'/surah/' + surah.nomor}
-                          className="text-base text-slate-900 font-semibold dark:text-slate-300">
+                          className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
                           <span className="absolute inset-0"></span>
                           {surah.nama_latin}
                         </Link>
-                        <div className="mt-0.5">{surah.arti}</div>
-                        <div className="mt-0.5 capitalize text-sky-600 font-medium">
+                        <div className="mt-0.5 text-[0.8125rem] leading-6 text-slate-500 dark:text-slate-400">
+                          {surah.arti}
+                        </div>
+                        <div className="mt-0.5 capitalize text-sky-500 font-medium text-sm">
                           {surah.jumlah_ayat} ayat | {surah.tempat_turun}
                         </div>
                       </div>
-                      <div className="flex-auto justify-end flex items-center px-6 text-lg">
+                      <div className="flex-auto justify-end flex items-center pl-6 text-lg">
                         <span className="font-semibold arabic">
                           {surah.nama}
                         </span>
