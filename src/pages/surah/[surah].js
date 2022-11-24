@@ -22,6 +22,17 @@ export default function Surah({ data1, data2, data3 }) {
 
   const Ttl = data1.nama_latin;
 
+  const gh = (w) => {
+    let ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    // const nm = document.getElementById('test').innerHTML;
+    let nm = `${w}`;
+    let result = '';
+    for (let c of nm) {
+      result += ar[parseInt(c)];
+    }
+    return result;
+  };
+
   return (
     <>
       <Head>
@@ -91,7 +102,9 @@ export default function Surah({ data1, data2, data3 }) {
                     id={isi.nomor}
                     className={` p-5 mb-6 scroll-mt-20 relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5`}>
                     <div className="pb-6 flex justify-between">
-                      <span className="text-sm">{isi.nomor}</span>
+                      <span className="text-sm" id="test">
+                        {isi.nomor}
+                      </span>
                       <div className="flex gap-4">
                         <span
                           onClick={() => Tafsir(isi.nomor)}
@@ -114,7 +127,7 @@ export default function Surah({ data1, data2, data3 }) {
                       </div>
                     </div>
                     <p className="leading-[3.5rem] text-2xl arabic text-right pb-4">
-                      {isi.ar}
+                      {isi.ar} {gh(isi.nomor)}
                     </p>
                     <p className="text-sm pb-2">{isi.tr}</p>
                     <p className="text-sm">{isi.idn}</p>
