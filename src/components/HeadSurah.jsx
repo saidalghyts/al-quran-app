@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Head({ data1 }) {
   return (
     <div className="flex justify-center mb-10">

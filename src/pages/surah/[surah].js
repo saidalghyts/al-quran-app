@@ -24,7 +24,6 @@ export default function Surah({ data1, data2, data3 }) {
 
   const gh = (w) => {
     let ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-    // const nm = document.getElementById('test').innerHTML;
     let nm = `${w}`;
     let result = '';
     for (let c of nm) {
@@ -126,10 +125,10 @@ export default function Surah({ data1, data2, data3 }) {
                         </span>
                       </div>
                     </div>
-                    <p className="leading-[3.5rem] text-2xl arabic text-right pb-4">
-                      {isi.ar} {gh(isi.nomor)}
+                    <p className="leading-[3.5rem] text-3xl arabic text-right pb-4">
+                      {isi.ar}&nbsp;{gh(isi.nomor)}
                     </p>
-                    <p className="text-sm pb-2">{isi.tr}</p>
+                    <p className="text-sm pb-2 text-sky-400">{isi.tr}</p>
                     <p className="text-sm">{isi.idn}</p>
                   </div>
                 );

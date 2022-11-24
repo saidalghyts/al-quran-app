@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: 'arabic';
-  src: url(/LPMQ.ttf);
+  src: url(/UthmanicHafs1Ver09.otf);
 }
 
 .arabic {
