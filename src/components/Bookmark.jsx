@@ -1,6 +1,11 @@
 import React from 'react';
 
-export default function Bookmark({ showBookmark, setShowBookmark, bookmark }) {
+export default function Bookmark({
+  showBookmark,
+  setShowBookmark,
+  bookmark,
+  removeBookmark,
+}) {
   return (
     <div
       className={`${
@@ -32,7 +37,12 @@ export default function Bookmark({ showBookmark, setShowBookmark, bookmark }) {
           <div id="theModal" className="modal-body relative p-4 text-justify">
             <ul>
               {bookmark.map((x) => {
-                return <li key={x.nomor}>{x.tr}</li>;
+                return (
+                  <li key={x.nomor}>
+                    <span>{x.tr}</span>
+                    <span onClick={() => removeBookmark(x)}>Hapus</span>
+                  </li>
+                );
               })}
             </ul>
           </div>

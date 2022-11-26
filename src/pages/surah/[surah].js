@@ -16,19 +16,13 @@ export default function Surah({ data1, data2, data3 }) {
   const { showBookmark, setShowBookmark } = useContext(Context);
   const [nomor, setNomor] = useState('');
   const [bookmark, setBookmark] = useState([]);
-  const [bookmarked, setBookmarked] = useState(false);
-
-  // console.log(data1.ayat.includes(2));
-  // console.log(bookmark.some((v) => v.id === 3));
 
   const addToBookmark = (ayatLs) => {
     setBookmark([...bookmark, ayatLs]);
-    setBookmarked(true);
   };
 
   const removeBookmark = (bookmarkToRemove) => {
     setBookmark(bookmark.filter((x) => x !== bookmarkToRemove));
-    setBookmarked(false);
   };
 
   const Tafsir = (id) => {
@@ -77,6 +71,7 @@ export default function Surah({ data1, data2, data3 }) {
         showBookmark={showBookmark}
         setShowBookmark={setShowBookmark}
         bookmark={bookmark}
+        removeBookmark={removeBookmark}
       />
 
       <div className="overflow-hidden">
@@ -87,7 +82,7 @@ export default function Surah({ data1, data2, data3 }) {
               <HeadSurah data1={data1} />
               <PrevNext data1={data1} />
               {data1.ayat.map((isi) => {
-                // const test = bookmark.some((c) => c.id === isi.id);
+                const test = bookmark.some((c) => c.id === isi.id);
                 return (
                   <CardAyat
                     key={isi.nomor}
@@ -100,7 +95,7 @@ export default function Surah({ data1, data2, data3 }) {
                     removeBookmark={removeBookmark}
                     isi={isi}
                     bookmark={bookmark}
-                    bookmarked={bookmarked}
+                    test={test}
                   />
                 );
               })}
