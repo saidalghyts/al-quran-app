@@ -39,20 +39,19 @@ export default function Navbar() {
                 </label>
                 <button>
                   <span onClick={() => setShowBookmark(false)}>
-                    <svg className="h-6 w-6" viewBox="0 0 24 24">
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24">
                       <g transform="translate(4.500000, 2.500000)">
                         <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z" />
                       </g>
                     </svg>
                   </span>
                 </button>
-                <button
-                  type="button"
-                  id="headlessui-listbox-button-4"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  data-headlessui-state
-                  aria-labelledby="headlessui-listbox-label-3 headlessui-listbox-button-4">
+                <button type="button" className="ml-4">
                   <span
                     onClick={() => setTheme('dark')}
                     className="dark:hidden">
