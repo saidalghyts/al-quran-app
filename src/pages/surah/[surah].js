@@ -16,6 +16,7 @@ export default function Surah({ data1, data2, data3 }) {
   const { showBookmark, setShowBookmark } = useContext(Context);
   const [nomor, setNomor] = useState('');
   const [bookmark, setBookmark] = useState([]);
+  const [bookmarked, setBookmarked] = useState();
 
   // console.log(data1.ayat.includes(2));
   // console.log(bookmark.some((v) => v.id === 3));
@@ -53,6 +54,7 @@ export default function Surah({ data1, data2, data3 }) {
     setBookmark(parsedBookmark);
   }, []);
 
+  useEffect(() => {});
   return (
     <>
       <Head>
@@ -84,6 +86,7 @@ export default function Surah({ data1, data2, data3 }) {
               <PrevNext data1={data1} />
               {data1.ayat.map((isi) => {
                 const test = bookmark.some((c) => c.id === isi.id);
+                console.log(test);
                 return (
                   <CardAyat
                     key={isi.nomor}
