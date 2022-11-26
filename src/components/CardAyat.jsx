@@ -1,4 +1,12 @@
-export default function CardAyat({ ayat, latin, translate, arab, Tafsir }) {
+export default function CardAyat({
+  ayat,
+  latin,
+  translate,
+  arab,
+  Tafsir,
+  addToBookmark,
+  isi,
+}) {
   const gh = (w) => {
     let ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
     let nm = `${w}`;
@@ -13,7 +21,10 @@ export default function CardAyat({ ayat, latin, translate, arab, Tafsir }) {
       id={ayat}
       className={` p-5 mb-6 scroll-mt-20 relative bg-slate-50 rounded-lg dark:bg-slate-800 dark:highlight-white/5`}>
       <div className="pb-6 flex justify-between">
-        <span className="text-sm" id="test">
+        <span
+          onClick={() => addToBookmark(isi)}
+          className={`text-sm `}
+          id="test">
           {ayat}
         </span>
         <div className="flex gap-4">

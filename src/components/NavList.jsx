@@ -55,10 +55,8 @@ export default function NavList({ data1, data2 }) {
               <li key={list.nomor} onClick={() => setOpen(true)}>
                 <Link
                   className={`${
-                    list.nama_latin == data1.nama_latin
-                      ? 'text-sky-500 dark:text-sky-400 font-semibold'
-                      : ''
-                  } block border-l pl-4 -ml-px  border-current`}
+                    list.nama_latin == data1.nama_latin ? 'text-sky-500' : ''
+                  } block border-l-2 pl-4 -ml-px border-current hover:text-sky-500 font-semibold`}
                   href={'/surah/' + list.nomor}
                   key={list.nomor}>
                   {list.nama_latin}
