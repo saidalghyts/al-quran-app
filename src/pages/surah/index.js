@@ -1,11 +1,5 @@
-import React, { useEffect } from 'react';
-import Router from 'next/router';
+import React from 'react';
 
-export default function Home() {
-  useEffect(() => {
-    const { pathname } = Router;
-    if (pathname == '/surah') {
-      Router.push('/');
-    }
-  });
+export default function index() {
+  return <div>index</div>;
 }

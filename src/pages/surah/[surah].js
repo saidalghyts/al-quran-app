@@ -50,7 +50,6 @@ export default function Surah({ data1, data2, data3 }) {
     setBookmark(parsedBookmark);
   }, []);
 
-  useEffect(() => {});
   return (
     <>
       <Head>
