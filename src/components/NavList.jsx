@@ -16,7 +16,6 @@ export default function NavList({ data1, data2 }) {
       } duration-100 block dark:bg-slate-900 max-lg:bg-white fixed z-30 inset-0 top-[3.780rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto`}>
       <nav className="lg:text-sm lg:leading-6 relative">
         <div className="sticky top-0 -ml-0.5 pointer-events-none">
-          <div className="h-8 bg-white dark:bg-slate-900  "></div>
           <div className="bg-white dark:bg-slate-900  relative pointer-events-auto ">
             <form
               className="flex flex-wrap -mx-2 sticky"
@@ -57,7 +56,7 @@ export default function NavList({ data1, data2 }) {
                   className={`${
                     list.nama_latin == data1.nama_latin ? 'text-sky-500' : ''
                   } block border-l-2 pl-4 -ml-px border-current hover:text-sky-500 font-semibold`}
-                  href={'/surah/' + list.nomor}
+                  href={'/' + list.nomor}
                   key={list.nomor}>
                   {list.nama_latin}
                 </Link>

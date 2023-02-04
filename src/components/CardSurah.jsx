@@ -17,7 +17,7 @@ export default function CardSurah({
           </div>
           <div className="pl-6 flex-auto ">
             <Link
-              href={'/surah/' + nomor}
+              href={'/' + nomor}
               className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
               <span className="absolute inset-0"></span>
               {namaSurah}

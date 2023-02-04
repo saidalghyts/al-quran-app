@@ -6,7 +6,7 @@ export default function PrevNext({ data1 }) {
       {data1.surat_sebelumnya === false ? null : (
         <Link
           className="group flex items-center hover:text-slate-900 dark:hover:text-white"
-          href={'/surah/' + data1.surat_sebelumnya.nomor}>
+          href={'/' + data1.surat_sebelumnya.nomor}>
           <svg
             viewBox="0 0 3 6"
             className="mr-3 w-auto h-1.5 text-slate-400 overflow-visible group-hover:text-slate-600 dark:group-hover:text-slate-300">
@@ -26,7 +26,7 @@ export default function PrevNext({ data1 }) {
       {data1.surat_selanjutnya === false ? null : (
         <Link
           className="group ml-auto flex items-center hover:text-slate-900 dark:hover:text-white"
-          href={'/surah/' + data1.surat_selanjutnya.nomor}>
+          href={'/' + data1.surat_selanjutnya.nomor}>
           {data1.surat_selanjutnya.nama_latin}
           <svg
             viewBox="0 0 3 6"

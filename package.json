@@ -1,6 +1,6 @@
 {
-  "name": "quran-id",
-  "version": "0.1.0",
+  "name": "al-quran-app",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

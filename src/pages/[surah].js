@@ -1,29 +1,26 @@
-import Fot from '../../components/Fot';
-import HeadSurah from '../../components/HeadSurah';
-import NavList from '../../components/NavList';
-import PrevNext from '../../components/PrevNext';
-import ForClose from '../../components/ForClose';
-import BtnNavList from '../../components/BtnNavList';
+import Fot from '../components/Fot';
+import HeadSurah from '../components/HeadSurah';
+import NavList from '../components/NavList';
+import PrevNext from '../components/PrevNext';
+import ForClose from '../components/ForClose';
+import BtnNavList from '../components/BtnNavList';
 import { useContext, useEffect, useState } from 'react';
 import Head from 'next/head';
-import CardAyat from '../../components/CardAyat';
-import TafsirMdl from '../../components/Tafsir';
-import { Context } from '../../contexts/Context';
-import Bookmark from '../../components/Bookmark';
+import CardAyat from '../components/CardAyat';
+import TafsirMdl from '../components/Tafsir';
+import { Context } from '../contexts/Context';
+import Bookmark from '../components/Bookmark';
 
 export default function Surah({ data1, data2, data3 }) {
   const [showModal, setShowModal] = useState(true);
-  const { showBookmark, setShowBookmark } = useContext(Context);
+  const {
+    showBookmark,
+    setShowBookmark,
+    bookmark,
+    removeBookmark,
+    addToBookmark,
+  } = useContext(Context);
   const [nomor, setNomor] = useState('');
-  const [bookmark, setBookmark] = useState([]);
-
-  const addToBookmark = (ayatLs) => {
-    setBookmark([...bookmark, ayatLs]);
-  };
-
-  const removeBookmark = (bookmarkToRemove) => {
-    setBookmark(bookmark.filter((x) => x !== bookmarkToRemove));
-  };
 
   const Tafsir = (id) => {
     setShowModal(false);
@@ -34,22 +31,7 @@ export default function Surah({ data1, data2, data3 }) {
     }
   };
 
-  useEffect(() => {
-    if (bookmark.length === 0) return;
-    localStorage.setItem('bookmark', JSON.stringify(bookmark));
-  }, [bookmark]);
-
-  useEffect(() => {
-    const bookmarkFromLocalStorage = localStorage.getItem('bookmark');
-
-    const parsedBookmark =
-      bookmarkFromLocalStorage !== null
-        ? JSON.parse(bookmarkFromLocalStorage)
-        : [];
-
-    setBookmark(parsedBookmark);
-  }, []);
-
+  useEffect(() => {});
   return (
     <>
       <Head>

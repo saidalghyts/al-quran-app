@@ -7,7 +7,7 @@ export default function CardAyat({
   addToBookmark,
   removeBookmark,
   isi,
-  bookmark,
+  test,
 }) {
   const gh = (w) => {
     let ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
@@ -18,6 +18,7 @@ export default function CardAyat({
     }
     return result;
   };
+
   return (
     <div
       id={ayat}
