@@ -1,7 +1,6 @@
 import Fot from '../components/Fot';
 import HeadSurah from '../components/HeadSurah';
 import NavList from '../components/NavList';
-import PrevNext from '../components/PrevNext';
 import ForClose from '../components/ForClose';
 import BtnNavList from '../components/BtnNavList';
 import { useContext, useEffect, useState } from 'react';
@@ -9,17 +8,10 @@ import Head from 'next/head';
 import CardAyat from '../components/CardAyat';
 import TafsirMdl from '../components/Tafsir';
 import { Context } from '../contexts/Context';
-import Bookmark from '../components/Bookmark';
 
 export default function Surah({ data1, data2, data3 }) {
   const [showModal, setShowModal] = useState(true);
-  const {
-    showBookmark,
-    setShowBookmark,
-    bookmark,
-    removeBookmark,
-    addToBookmark,
-  } = useContext(Context);
+  const { bookmark, removeBookmark, addToBookmark } = useContext(Context);
   const [nomor, setNomor] = useState('');
 
   const Tafsir = (id) => {
@@ -31,7 +23,6 @@ export default function Surah({ data1, data2, data3 }) {
     }
   };
 
-  useEffect(() => {});
   return (
     <>
       <Head>
@@ -48,24 +39,17 @@ export default function Surah({ data1, data2, data3 }) {
         nomor={nomor}
       />
 
-      <Bookmark
-        showBookmark={showBookmark}
-        setShowBookmark={setShowBookmark}
-        bookmark={bookmark}
-        removeBookmark={removeBookmark}
-      />
-
       <div className="overflow-hidden">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="lg:pl-[19.5rem]">
             <BtnNavList />
             <main className="max-w-3xl mx-auto relative z-20 pt-10 xl:max-w-none">
               <HeadSurah data1={data1} />
-              <PrevNext data1={data1} />
               {data1.ayat.map((isi) => {
                 const test = bookmark.some((c) => c.id === isi.id);
                 return (
                   <CardAyat
+                    id={isi.id}
                     key={isi.nomor}
                     ayat={isi.nomor}
                     arab={isi.ar}

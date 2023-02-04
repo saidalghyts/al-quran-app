@@ -1,15 +1,22 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useContext, useState } from 'react';
+import { useState, useEffect } from 'react';
 import CardSurah from '../components/CardSurah';
-import { Context } from '../contexts/Context';
-import Bookmark from '../components/Bookmark';
 
-export default function Home({ dataSrh }) {
+export default function Home({ dataSurah }) {
   const [search, setSearch] = useState('');
-  const { showBookmark, setShowBookmark, bookmark, removeBookmark } =
-    useContext(Context);
+
+  const [dataSrh, setDataSrh] = useState(
+    dataSurah || JSON.parse(localStorage.getItem('data'))
+  );
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('data', JSON.stringify(dataSurah));
+    }
+  }, [dataSurah]);
+
   return (
     <>
       <Head>
@@ -19,13 +26,6 @@ export default function Home({ dataSrh }) {
       </Head>
 
       <Header setSearch={setSearch} />
-
-      <Bookmark
-        showBookmark={showBookmark}
-        setShowBookmark={setShowBookmark}
-        bookmark={bookmark}
-        removeBookmark={removeBookmark}
-      />
 
       <div className="overflow-hidden">
         <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
@@ -54,11 +54,22 @@ export default function Home({ dataSrh }) {
 }
 
 export async function getStaticProps() {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const storedData = localStorage.getItem('data');
+    if (storedData) {
+      return {
+        props: {
+          dataSurah: JSON.parse(storedData),
+        },
+      };
+    }
+  }
+
   const res = await fetch('https://equran.id/api/surat');
-  const dataSrh = await res.json();
+  const dataSurah = await res.json();
   return {
     props: {
-      dataSrh,
+      dataSurah,
     },
   };
 }

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export default function CardAyat({
   ayat,
   latin,
@@ -5,9 +7,9 @@ export default function CardAyat({
   arab,
   Tafsir,
   addToBookmark,
-  removeBookmark,
   isi,
   test,
+  removeBookmark,
 }) {
   const gh = (w) => {
     let ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
@@ -18,7 +20,6 @@ export default function CardAyat({
     }
     return result;
   };
-
   return (
     <div
       id={ayat}
@@ -29,7 +30,9 @@ export default function CardAyat({
         </span>
         <div className="flex gap-4">
           <span
-            onClick={() => addToBookmark(isi)}
+            onClick={
+              test ? () => removeBookmark(isi) : () => addToBookmark(isi)
+            }
             className="cursor-pointer duration-200">
             <svg
               className="line"
@@ -41,16 +44,16 @@ export default function CardAyat({
               viewBox="0 0 24 24">
               <g transform="translate(4.500000, 2.500000)">
                 <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z" />
-
-                <line
-                  className="svgC v"
-                  transform="translate(-4.500000, -2.500000)"
-                  x1={12}
-                  x2={12}
-                  y1={6}
-                  y2={12}
-                />
-
+                {test ? null : (
+                  <line
+                    className="svgC v"
+                    transform="translate(-4.500000, -2.500000)"
+                    x1={12}
+                    x2={12}
+                    y1={6}
+                    y2={12}
+                  />
+                )}
                 <line
                   className="svgC h"
                   transform="translate(-4.500000, -2.500000)"

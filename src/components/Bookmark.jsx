@@ -36,9 +36,9 @@ export default function Bookmark({
           </div>
           <div id="theModal" className="modal-body relative p-4 text-justify">
             <ul>
-              {bookmark.map((x) => {
+              {bookmark.map((x, i) => {
                 return (
-                  <li key={x.nomor}>
+                  <li key={i}>
                     <span>{x.tr}</span>
                     <span onClick={() => removeBookmark(x)}>Hapus</span>
                   </li>
