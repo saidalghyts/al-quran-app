@@ -9,31 +9,20 @@ export default function CardSurah({
   artiSurah,
 }) {
   return (
-    <li className="text-sm leading-6">
-      <div className="relative flex flex-col-reverse py-6 group rounded-xl bg-slate-50 p-6 dark:bg-slate-800/80 dark:highlight-white/5 hover:bg-slate-100 dark:hover:bg-slate-700/50">
-        <div className="flex">
-          <div className="flex justify-center items-center">
-            <span className=" text-lg font-extrabold">{nomor}</span>
-          </div>
-          <div className="pl-6 flex-auto ">
-            <Link
-              href={'/' + nomor}
-              className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
-              <span className="absolute inset-0"></span>
-              {namaSurah}
-            </Link>
-            <div className="mt-0.5 text-[0.8125rem] leading-6 text-slate-500 dark:text-slate-400">
-              {artiSurah}
-            </div>
-            <div className="mt-0.5 capitalize text-sky-500 font-medium text-sm">
-              {jumlahAyat} ayat | {tempatTurun}
-            </div>
-          </div>
-          <div className="flex-auto justify-end flex items-center pl-6 text-lg">
-            <span className="font-semibold arabic">{surahArab}</span>
-          </div>
+    <div className="card w-auto bg-base-100 shadow-xl rounded-md">
+      <div className="card-body p-6">
+        <h2 className="card-title text-base w-full">
+          {namaSurah} <span className="font-normal">{artiSurah}</span>
+        </h2>
+        <p className="text-sm capitalize">
+          {tempatTurun} ({jumlahAyat})
+        </p>
+        <div className="card-actions justify-end">
+          <Link href={'/' + nomor}>
+            <button className="btn btn-primary">Baca</button>
+          </Link>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

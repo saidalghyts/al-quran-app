@@ -1,10 +1,9 @@
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../contexts/Context';
+import { themeChange } from 'theme-change';
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
   const { open, setShowBookmark } = useContext(Context);
   const [scroll, setScroll] = useState(false);
 
@@ -12,6 +11,11 @@ export default function Navbar() {
     window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 50);
     });
+  }, []);
+
+  useEffect(() => {
+    themeChange(false);
+    // 👆 false parameter is required for react project
   }, []);
 
   return (
@@ -38,6 +42,11 @@ export default function Navbar() {
                   Theme
                 </label>
                 <button>
+                  <select data-choose-theme>
+                    <option value="">Default</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                  </select>
                   <span onClick={() => setShowBookmark(false)}>
                     <svg
                       className="h-5 w-5"
@@ -52,9 +61,7 @@ export default function Navbar() {
                   </span>
                 </button>
                 <button type="button" className="ml-4">
-                  <span
-                    onClick={() => setTheme('dark')}
-                    className="dark:hidden">
+                  <span className="dark:hidden">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -72,9 +79,7 @@ export default function Navbar() {
                       />
                     </svg>
                   </span>
-                  <span
-                    onClick={() => setTheme('light')}
-                    className="hidden dark:inline">
+                  <span className="hidden dark:inline">
                     <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
                       <path
                         fillRule="evenodd"

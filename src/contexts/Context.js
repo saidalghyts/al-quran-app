@@ -5,6 +5,16 @@ export const ContextProvider = ({ children }) => {
   const [open, setOpen] = useState(true);
   const [showBookmark, setShowBookmark] = useState(true);
   const [bookmark, setBookmark] = useState([]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('https://equran.id/api/surat');
+      const data = await res.json();
+      setData(data);
+    };
+    fetchData();
+  }, []);
 
   const addToBookmark = (ayatLs) => {
     setBookmark([...bookmark, ayatLs]);
@@ -15,7 +25,6 @@ export const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (bookmark.length === 0) return;
     localStorage.setItem('bookmark', JSON.stringify(bookmark));
   }, [bookmark]);
 
@@ -40,6 +49,7 @@ export const ContextProvider = ({ children }) => {
         bookmark,
         removeBookmark,
         addToBookmark,
+        data,
       }}>
       {children}
     </Context.Provider>

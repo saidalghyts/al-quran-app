@@ -1,60 +1,58 @@
-import React from 'react';
+import Link from 'next/link';
+import React, { useContext, useState } from 'react';
+import { Context } from '../contexts/Context';
 
-export default function Bookmark({
-  showBookmark,
-  setShowBookmark,
-  bookmark,
-  removeBookmark,
-}) {
+export default function Bookmark() {
+  const { bookmark, removeBookmark, data } = useContext(Context);
+
   return (
     <div
-      className={`${
-        showBookmark ? 'invisible opacity-0' : 'opacity-100 visible'
-      } z-[60] fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto supports-[backdrop-filter]:backdrop-saturate-[180%] supports-[backdrop-filter]:backdrop-blur-[10px]`}>
-      <div className="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
-        <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto dark:bg-slate-900 bg-white bg-clip-padding rounded-md outline-none text-current">
-          <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b dark:border-slate-50/[0.06] border-gray-200 rounded-t-md">
-            <h5 className="text-xl font-medium leading-normal ">Bookmark</h5>
-            <span
-              onClick={() => setShowBookmark(true)}
-              className="cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="hover:stroke-sky-400">
-                <line x1={18} y1={6} x2={6} y2={18} />
-                <line x1={6} y1={6} x2={18} y2={18} />
-              </svg>
-            </span>
+      tabindex="0"
+      class="mt-3 card card-compact dropdown-content w-96 bg-base-100 shadow rounded-md">
+      <div class="card-body">
+        {bookmark.length === 0 ? (
+          <div className="flex h-12 justify-center items-center w-full">
+            <h1>Tidak ada bookmark</h1>
           </div>
-          <div id="theModal" className="modal-body relative p-4 text-justify">
-            <ul>
-              {bookmark.map((x, i) => {
-                return (
-                  <li key={i}>
-                    <span>{x.tr}</span>
-                    <span onClick={() => removeBookmark(x)}>Hapus</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 dark:border-slate-50/[0.06] rounded-b-md">
-            <button
-              onClick={() => setShowBookmark(true)}
-              type="button"
-              className="inline-block px-6 py-2.5 bg-sky-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:bg-sky-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-sky-800 active:shadow-lg transition duration-150 ease-in-out">
-              Close
-            </button>
-          </div>
-        </div>
+        ) : (
+          <ul>
+            {bookmark.map((c, i) => {
+              return (
+                <li key={i} className="flex items-center justify-between">
+                  <Link href={'/' + c.surah + '#' + c.nomor}>
+                    <span className="btn btn-ghost h-6">
+                      {data
+                        .filter((x) => x.nomor === c.surah)
+                        .map((x) => x.nama_latin)}{' '}
+                      ayat {c.nomor}
+                    </span>
+                  </Link>
+                  <span
+                    onClick={() => removeBookmark(c)}
+                    className="btn btn-ghost btn-square flex justify-center items-center">
+                    <svg
+                      strokeWidth={2}
+                      className="w-5 h-5 cursor-pointer"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      fill="none">
+                      <g transform="translate(3.500000, 2.000000)">
+                        <path d="M15.3891429,7.55409524 C15.3891429,15.5731429 16.5434286,19.1979048 8.77961905,19.1979048 C1.01485714,19.1979048 2.19295238,15.5731429 2.19295238,7.55409524" />
+                        <line
+                          x1="16.8651429"
+                          y1="4.47980952"
+                          x2="0.714666667"
+                          y2="4.47980952"
+                        />
+                        <path d="M12.2148571,4.47980952 C12.2148571,4.47980952 12.7434286,0.714095238 8.78914286,0.714095238 C4.83580952,0.714095238 5.36438095,4.47980952 5.36438095,4.47980952" />
+                      </g>
+                    </svg>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </div>
   );

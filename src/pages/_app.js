@@ -15,15 +15,9 @@ NProgress.configure({ showSpinner: false });
 function MyApp({ Component, pageProps }) {
   return (
     <ContextProvider>
-      <ThemeProvider
-        enableSystem={true}
-        defaultTheme="system"
-        attribute="class"
-        disableTransitionOnChange>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ContextProvider>
   );
 }

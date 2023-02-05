@@ -1,36 +1,16 @@
-import Head from 'next/head';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CardSurah from '../components/CardSurah';
 
 export default function Home({ dataSurah }) {
   const [search, setSearch] = useState('');
 
-  const [dataSrh, setDataSrh] = useState(
-    dataSurah || JSON.parse(localStorage.getItem('data'))
-  );
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem('data', JSON.stringify(dataSurah));
-    }
-  }, [dataSurah]);
-
   return (
     <>
-      <Head>
-        <title>Al-Qur&#39;an</title>
-        <meta name="description" content="Baca al-qur&#39;an online" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header setSearch={setSearch} />
-
-      <div className="overflow-hidden">
-        <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-8">
-          <ul className="grid lg:grid-cols-3 gap-5 md:grid-cols-2">
-            {dataSrh
+      <div className="overflow-hidden mt-6 -z-10">
+        <div className="max-w-8xl mx-auto px-6">
+          <ul className="grid lg:grid-cols-3 gap-6 md:grid-cols-2">
+            {dataSurah
               .filter((surah) =>
                 surah.nama_latin.toLowerCase().includes(search)
               )
@@ -54,17 +34,6 @@ export default function Home({ dataSurah }) {
 }
 
 export async function getStaticProps() {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const storedData = localStorage.getItem('data');
-    if (storedData) {
-      return {
-        props: {
-          dataSurah: JSON.parse(storedData),
-        },
-      };
-    }
-  }
-
   const res = await fetch('https://equran.id/api/surat');
   const dataSurah = await res.json();
   return {
