@@ -35,31 +35,30 @@ function Nav() {
         </Link>
       </div>
       <div className="navbar-end">
-        <div className="dropdown dropdown-end">
-          <label tabindex="0" className="btn btn-ghost btn-circle">
-            <div className="indicator">
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24">
-                <g transform="translate(4.500000, 2.500000)">
-                  <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z" />
-                </g>
-              </svg>
-              <span
-                className={`${
-                  bookmark.length == 0
-                    ? 'invisible scale-0'
-                    : 'visible scale-100'
-                } badge badge-sm indicator-item w-4 h-[1.1rem] text-xs`}>
-                {bookmark.length}
-              </span>
-            </div>
-          </label>
-          <Bookmark />
-        </div>
+        <label
+          htmlFor="my-modal-6"
+          tabindex="0"
+          className="btn btn-ghost btn-circle">
+          <div className="indicator">
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24">
+              <g transform="translate(4.500000, 2.500000)">
+                <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z" />
+              </g>
+            </svg>
+            <span
+              className={`${
+                bookmark.length == 0 ? 'invisible scale-0' : 'visible scale-100'
+              } badge badge-sm indicator-item w-4 h-[1.1rem] text-xs`}>
+              {bookmark.length}
+            </span>
+          </div>
+        </label>
+        <Bookmark />
         <button className="btn btn-ghost btn-circle sm:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
