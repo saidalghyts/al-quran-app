@@ -9,9 +9,9 @@ export default function Bookmark() {
     <>
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box relative max-h-[50%] pt-0 pb-0 rounded-md">
-          <div className="sticky top-0 bg-inherit pt-2 pb-2 flex items-center justify-between ">
-            <h3 className="text-sm font-normal">Bookmark</h3>
+        <div className="modal-box relative max-h-[50%] py-0">
+          <div className="sticky top-0 bg-inherit py-3 flex items-center justify-between ">
+            <h3 className="text-sm font-bold">Bookmark</h3>
             <label htmlFor="my-modal-6" className="btn btn-sm btn-circle">
               ✕
             </label>
@@ -27,7 +27,7 @@ export default function Bookmark() {
                   return (
                     <li key={i} className="flex items-center justify-between">
                       <Link href={'/' + c.surah + '#' + c.nomor}>
-                        <span className="font-bold text-sm">
+                        <span className="text-sm font-medium">
                           {data
                             .filter((x) => x.nomor === c.surah)
                             .map((x) => x.nama_latin)}{' '}
@@ -61,6 +61,7 @@ export default function Bookmark() {
               </ul>
             )}
           </div>
+          <div className="h-6 bg-inherit w-full sticky -bottom-1"></div>
         </div>
       </div>
     </>

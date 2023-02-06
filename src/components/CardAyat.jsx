@@ -1,3 +1,4 @@
+import TafsirMdl from '../components/Tafsir';
 export default function CardAyat({
   ayat,
   latin,
@@ -63,8 +64,8 @@ export default function CardAyat({
               </g>
             </svg>
           </span>
-
-          <span
+          <label
+            htmlFor="my-modal-4"
             onClick={() => Tafsir(ayat)}
             className="cursor-pointer duration-200">
             <svg
@@ -81,7 +82,7 @@ export default function CardAyat({
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
             </svg>
-          </span>
+          </label>
         </div>
       </div>
       <p className="leading-[3.5rem] text-3xl arabic text-right pb-4">

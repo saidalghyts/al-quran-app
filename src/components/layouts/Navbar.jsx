@@ -11,7 +11,7 @@ function Nav() {
   }, []);
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 max-w-8xl mx-auto z-50">
+    <div className="navbar bg-base-100 sticky top-0 max-w-8xl mx-auto z-30">
       <div className="flex-none">
         <label for="drawer" className="btn btn-circle btn-ghost">
           <svg

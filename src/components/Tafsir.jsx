@@ -1,47 +1,21 @@
-export default function Tafsir({ showModal, setShowModal, data3, nomor }) {
+export default function Tafsir({ data3, nomor }) {
   return (
-    <div
-      className={`${
-        showModal ? 'invisible opacity-0' : 'opacity-100 visible'
-      } z-[60] fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto supports-[backdrop-filter]:backdrop-saturate-[180%] supports-[backdrop-filter]:backdrop-blur-[10px]`}>
-      <div className="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
-        <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto dark:bg-slate-900 bg-white bg-clip-padding rounded-md outline-none text-current">
-          <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b dark:border-slate-50/[0.06] border-gray-200 rounded-t-md">
-            <h5 className="text-xl font-medium leading-normal ">Tafsir</h5>
-            <span onClick={() => setShowModal(true)} className="cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="hover:stroke-sky-400">
-                <line x1={18} y1={6} x2={6} y2={18} />
-                <line x1={6} y1={6} x2={18} y2={18} />
-              </svg>
-            </span>
+    <>
+      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div id="theModal" className="modal-box relative max-h-[50%] py-0">
+          <div className="sticky top-0 bg-inherit py-3 flex items-center justify-between ">
+            <h3 className="text-sm font-bold">Bookmark</h3>
+            <label htmlFor="my-modal-4" className="btn btn-sm btn-circle">
+              ✕
+            </label>
           </div>
-          <div id="theModal" className="modal-body relative p-4 text-justify">
-            <p>
-              {data3.tafsir
-                .filter((x) => x.ayat === nomor)
-                .map((x) => x.tafsir)}
-            </p>
-          </div>
-          <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 dark:border-slate-50/[0.06] rounded-b-md">
-            <button
-              onClick={() => setShowModal(true)}
-              type="button"
-              className="inline-block px-6 py-2.5 bg-sky-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:bg-sky-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-sky-800 active:shadow-lg transition duration-150 ease-in-out">
-              Close
-            </button>
-          </div>
+          <p>
+            {data3.tafsir.filter((x) => x.ayat === nomor).map((x) => x.tafsir)}
+          </p>
+          <div className="h-6 bg-inherit w-full sticky -bottom-1"></div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

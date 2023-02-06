@@ -3,20 +3,20 @@ import HeadSurah from '../components/HeadSurah';
 import NavList from '../components/NavList';
 import ForClose from '../components/ForClose';
 import BtnNavList from '../components/BtnNavList';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import Head from 'next/head';
 import CardAyat from '../components/CardAyat';
 import TafsirMdl from '../components/Tafsir';
 import { Context } from '../contexts/Context';
 
 export default function Surah({ data1, data2, data3 }) {
-  const [showModal, setShowModal] = useState(true);
   const { bookmark, removeBookmark, addToBookmark } = useContext(Context);
   const [nomor, setNomor] = useState('');
+  const [modal, setModal] = useState(false);
 
   const Tafsir = (id) => {
-    setShowModal(false);
     setNomor(id);
+    setModal(true);
     const element = document.getElementById('theModal');
     if (nomor !== id) {
       element.scrollTop = 0;
@@ -32,13 +32,6 @@ export default function Surah({ data1, data2, data3 }) {
       <NavList data1={data1} data2={data2} />
       <ForClose data3={data3} />
 
-      <TafsirMdl
-        data3={data3}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        nomor={nomor}
-      />
-
       <div className="overflow-hidden">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="lg:pl-[19.5rem]">
@@ -48,20 +41,28 @@ export default function Surah({ data1, data2, data3 }) {
               {data1.ayat.map((isi) => {
                 const test = bookmark.some((c) => c.id === isi.id);
                 return (
-                  <CardAyat
-                    id={isi.id}
-                    key={isi.nomor}
-                    ayat={isi.nomor}
-                    arab={isi.ar}
-                    latin={isi.tr}
-                    translate={isi.idn}
-                    Tafsir={Tafsir}
-                    addToBookmark={addToBookmark}
-                    removeBookmark={removeBookmark}
-                    isi={isi}
-                    bookmark={bookmark}
-                    test={test}
-                  />
+                  <>
+                    <CardAyat
+                      id={isi.id}
+                      key={isi.nomor}
+                      ayat={isi.nomor}
+                      arab={isi.ar}
+                      latin={isi.tr}
+                      translate={isi.idn}
+                      Tafsir={Tafsir}
+                      addToBookmark={addToBookmark}
+                      removeBookmark={removeBookmark}
+                      isi={isi}
+                      bookmark={bookmark}
+                      test={test}
+                    />
+                    <TafsirMdl
+                      data3={data3}
+                      nomor={nomor}
+                      modal={modal}
+                      setModal={setModal}
+                    />
+                  </>
                 );
               })}
             </main>
