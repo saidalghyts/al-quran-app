@@ -8,6 +8,7 @@ import Head from 'next/head';
 import CardAyat from '../components/CardAyat';
 import TafsirMdl from '../components/Tafsir';
 import { Context } from '../contexts/Context';
+import BookmarkIcon from '../components/BookmarkIcon';
 
 export default function Surah({ data1, data2, data3 }) {
   const { bookmark, removeBookmark, addToBookmark } = useContext(Context);
@@ -39,7 +40,6 @@ export default function Surah({ data1, data2, data3 }) {
             <main className="max-w-3xl mx-auto relative z-20 pt-10 xl:max-w-none">
               <HeadSurah data1={data1} />
               {data1.ayat.map((isi) => {
-                const test = bookmark.some((c) => c.id === isi.id);
                 return (
                   <>
                     <CardAyat
@@ -52,10 +52,9 @@ export default function Surah({ data1, data2, data3 }) {
                       Tafsir={Tafsir}
                       addToBookmark={addToBookmark}
                       removeBookmark={removeBookmark}
-                      isi={isi}
-                      bookmark={bookmark}
-                      test={test}
-                    />
+                      isi={isi}>
+                      <BookmarkIcon favId={isi.id} />
+                    </CardAyat>
                     <TafsirMdl
                       data3={data3}
                       nomor={nomor}
